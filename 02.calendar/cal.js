@@ -13,10 +13,9 @@ const startDate = new Date(year, month - 1, 1);
 const endDate = new Date(year, month, 0);
 
 const startWeek = startDate.getDay();
-const weeks = ["日", "月", "火", "水", "木", "金", "土"];
 
 console.log(`${month}月 ${year}`.padStart(13));
-console.log(weeks.join(" "));
+console.log("日", "月", "火", "水", "木", "金", "土");
 process.stdout.write(" ".repeat(startWeek * 3));
 
 const dates = [];
