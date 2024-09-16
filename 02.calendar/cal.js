@@ -12,21 +12,21 @@ const month = option["m"] ? option["m"] : thisMonth + 1;
 const startDate = new Date(year, month - 1, 1);
 const endDate = new Date(year, month, 0);
 
-const startWeek = startDate.getDay();
+const startWeekday = startDate.getDay();
 
 console.log(`${month}月 ${year}`.padStart(13));
 console.log("日", "月", "火", "水", "木", "金", "土");
-process.stdout.write(" ".repeat(startWeek * 3));
+process.stdout.write(" ".repeat(startWeekday * 3));
 
 const dates = [];
-for (let date = startDate.getDate(); date <= endDate.getDate(); date++) {
-  dates.push(new Date(year, month - 1, date));
+for (let day = startDate.getDate(); day <= endDate.getDate(); day++) {
+  dates.push(new Date(year, month - 1, day));
 }
 
-for (let day of dates) {
+for (let date of dates) {
   process.stdout.write(
-    day.getDate().toString().padStart(2).padEnd(3) +
-      (day.getDay() === 6 ? "\n" : ""),
+    date.getDate().toString().padStart(2).padEnd(3) +
+      (date.getDay() === 6 ? "\n" : ""),
   );
 }
 
