@@ -2,9 +2,8 @@
 
 import minimist from "minimist";
 
-const today = new Date();
-const thisYear = today.getFullYear();
-const thisMonth = today.getMonth();
+const thisYear = new Date().getFullYear();
+const thisMonth = new Date().getMonth();
 const option = minimist(process.argv.slice(2));
 const year = option.y || thisYear;
 const month = option.m || thisMonth + 1;
