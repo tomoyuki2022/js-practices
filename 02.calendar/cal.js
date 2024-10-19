@@ -31,4 +31,9 @@ for (let day = startDate.getDate(); day <= endDate.getDate(); day++) {
   }
 }
 
-console.log("\n");
+if (endDate.getDay() === 6) {
+  console.log();
+} else {
+  console.log();
+  console.log();
+}
