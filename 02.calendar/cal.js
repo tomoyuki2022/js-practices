@@ -15,18 +15,20 @@ const startWeekday = startDate.getDay();
 
 console.log(`${month}月 ${year}`.padStart(13));
 console.log("日 月 火 水 木 金 土");
-process.stdout.write(" ".repeat(startWeekday * 3));
+process.stdout.write(" ".repeat(startWeekday * 2.5));
 
-const dates = [];
 for (let day = startDate.getDate(); day <= endDate.getDate(); day++) {
-  dates.push(new Date(year, month - 1, day));
-}
+  const date = new Date(year, month - 1, day);
 
-for (let date of dates) {
   process.stdout.write(
-    date.getDate().toString().padStart(2).padEnd(3) +
-      (date.getDay() === 6 ? "\n" : ""),
+    date.getDay() === 0
+      ? date.getDate().toString().padStart(2)
+      : date.getDate().toString().padStart(3),
   );
+
+  if (date.getDay() === 6) {
+    console.log();
+  }
 }
 
 console.log("\n");
