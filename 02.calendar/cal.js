@@ -15,16 +15,12 @@ const startWeekday = startDate.getDay();
 
 console.log(`${month}月 ${year}`.padStart(13));
 console.log("日 月 火 水 木 金 土");
-process.stdout.write(" ".repeat(startWeekday * 2.5));
+process.stdout.write(" ".repeat(startWeekday * 3));
 
 for (let day = startDate.getDate(); day <= endDate.getDate(); day++) {
   const date = new Date(year, month - 1, day);
 
-  process.stdout.write(
-    date.getDay() === 0
-      ? date.getDate().toString().padStart(2)
-      : date.getDate().toString().padStart(3),
-  );
+  process.stdout.write(date.getDate().toString().padStart(2) + " ");
 
   if (date.getDay() === 6) {
     console.log();
